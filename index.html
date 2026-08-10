@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Build faster, safer, smarter — a positioning concept for Timescapes</title>
-<meta name="description" content="An unsolicited positioning concept for the Timescapes homepage, prepared as a work sample.">
+<meta name="description" content="An unsolicited positioning concept for the Timescapes homepage, prepared as a work sample by Evan Gale.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,6 @@
 
     /* the one augmentation */
     --orange:#FF7A18;
-    --orange-ink:#D9560A;
 
     /* commentary voice — never used inside the mockup */
     --pink:#FF2D8A;
@@ -46,9 +45,8 @@
     *{animation:none!important;transition:none!important}
     html{scroll-behavior:auto}
   }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
-  /* ============ COMMENTARY HEADER — white / pink / black Helvetica ============ */
+  /* ============ COMMENTARY VOICE — white / pink / black Helvetica ============ */
   .brief{
     background:#fff;border:3px solid var(--pink);border-radius:2px;
     font-family:var(--helv);color:#000;
@@ -63,25 +61,18 @@
   .brief p{font-size:14.5px;line-height:1.62;margin:0 0 13px;max-width:88ch}
   .brief p:last-of-type{margin-bottom:0}
   .brief b{font-weight:700}
-  .brief .rule{height:1px;background:var(--pink);opacity:.35;margin:20px 0}
-  .brief .sig{font-size:13px;line-height:1.7;margin-top:20px}
-  .brief .sig span{color:#888}
-  .notes-btn{
-    font-family:var(--helv);font-size:12px;font-weight:700;letter-spacing:.1em;
-    text-transform:uppercase;background:#fff;color:#000;border:2px solid var(--pink);
-    padding:9px 16px;border-radius:2px;cursor:pointer;margin-top:20px;
-  }
-  .notes-btn:hover{background:var(--pink);color:#fff}
-  .notes-btn[aria-pressed="true"]{background:var(--pink);color:#fff}
+  .brief .rule{height:1px;background:var(--pink);opacity:.35;margin:22px 0}
+  .brief .sig{font-size:13.5px;line-height:1.75}
+  .brief .sig b{font-size:14.5px}
+  .brief .sig a{color:var(--pink)}
 
-  /* redline notes — same commentary voice */
-  .note{display:none}
-  body.notes .note{
-    display:block;background:#fff;border:2px solid var(--pink);border-radius:2px;
+  /* redline notes — same voice, always visible */
+  .note{
+    background:#fff;border:2px solid var(--pink);border-radius:2px;
     font-family:var(--helv);font-size:13px;line-height:1.6;color:#000;
-    padding:14px 16px;margin:26px 0 0;
+    padding:14px 16px;margin:34px 0 0;
   }
-  body.notes .note::before{
+  .note::before{
     content:"WHY";display:block;font-size:10px;font-weight:700;letter-spacing:.16em;
     color:var(--pink);margin-bottom:7px;
   }
@@ -96,7 +87,6 @@
   .chrome i{width:9px;height:9px;border-radius:50%;background:#C3CFD6;display:block}
   .chrome span{margin-left:8px}
 
-  /* nav — white, as on the real site */
   .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;
     flex-wrap:wrap;padding:16px 40px;background:#fff;border-bottom:1px solid var(--line)}
   .nav img{height:26px;width:auto}
@@ -112,10 +102,9 @@
   .btn-out{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
   .btn-out:hover{border-color:#fff}
 
-  /* ============ HERO — video, navy scrim ============ */
+  /* ============ HERO ============ */
   .hero{position:relative;background:var(--navy) center/cover no-repeat;
-    background-image:url("https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/6587872b1ab0756ef8b97cf6_Frame%201903-min.jpg");
-    isolation:isolate;overflow:hidden}
+    background-image:url("assets/hero-poster.jpg");isolation:isolate;overflow:hidden}
   .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .hero::after{content:"";position:absolute;inset:0;z-index:1;
     background:linear-gradient(105deg,rgba(0,33,48,.95) 0%,rgba(0,33,48,.86) 46%,rgba(0,33,48,.55) 100%)}
@@ -141,10 +130,6 @@
   .metric .n{font-family:var(--display);font-weight:800;font-size:42px;letter-spacing:-.035em;
     color:var(--orange);font-variant-numeric:tabular-nums;line-height:1}
   .metric .l{font-size:14.5px;line-height:1.5;color:#BBD2DF;margin-top:12px;max-width:27ch}
-  .metric .was{display:none;font-family:var(--helv);font-size:11.5px;line-height:1.55;
-    color:var(--pink);margin-top:16px;padding-top:12px;border-top:1px dashed rgba(255,45,138,.5)}
-  body.notes .metric .was{display:block}
-  .metric .was s{color:#7E97A6}
 
   /* ============ PILLARS ============ */
   .pillar{padding:88px 40px 0;scroll-margin-top:20px}
@@ -154,24 +139,29 @@
     text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
   .pillar.dark .ts{color:var(--blue)}
   .ts::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);flex:none}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:24px;align-items:stretch}
+  .col-text{min-width:0}
+  .col-media{display:flex;flex-direction:column;gap:18px;min-height:0;min-width:0}
+
   .pillar h3{font-family:var(--display);font-weight:800;letter-spacing:-.04em;
-    font-size:clamp(34px,5.4vw,58px);line-height:1.02;margin:16px 0 0}
+    font-size:clamp(34px,5.4vw,58px);line-height:1.02;margin:0}
   .pillar h3 span{color:var(--orange)}
   .say{font-size:20px;line-height:1.45;max-width:38ch;margin:18px 0 0;font-weight:500}
   .pillar.dark .say{color:#CFE2ED}
-  .cols{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:40px;align-items:start}
-  @media (max-width:820px){.cols{grid-template-columns:1fr;gap:32px}}
-  .cols ul{margin:0;padding:0;list-style:none}
-  .cols li{position:relative;padding-left:24px;margin-bottom:16px;font-size:16px;
+  .col-text ul{margin:34px 0 0;padding:0;list-style:none}
+  .col-text li{position:relative;padding-left:24px;margin-bottom:16px;font-size:16px;
     line-height:1.55;color:#324a58}
-  .pillar.dark .cols li{color:#BBD2DF}
-  .cols li::before{content:"";position:absolute;left:0;top:.66em;width:11px;height:2px;
+  .pillar.dark .col-text li{color:#BBD2DF}
+  .col-text li::before{content:"";position:absolute;left:0;top:.66em;width:11px;height:2px;
     background:var(--orange)}
-  .shot{border-radius:3px;overflow:hidden;border:1px solid var(--line);background:var(--off)}
+
+  .shot{flex:1 1 auto;min-height:240px;border-radius:3px;overflow:hidden;
+    border:1px solid var(--line);background:var(--off)}
   .pillar.dark .shot{border-color:var(--line-dk)}
-  .shot img{width:100%;height:250px;object-fit:cover}
-  .ev{background:var(--off);border-left:4px solid var(--blue);padding:20px 22px;margin-top:18px;
-    border-radius:0 3px 3px 0}
+  .shot img{width:100%;height:100%;min-height:240px;object-fit:cover}
+  .ev{flex:0 0 auto;background:var(--off);border-left:4px solid var(--blue);
+    padding:20px 22px;border-radius:0 3px 3px 0}
   .pillar.dark .ev{background:rgba(255,255,255,.06);border-left-color:var(--orange)}
   .ev .t{font-family:var(--helv);font-size:10.5px;font-weight:700;letter-spacing:.14em;
     text-transform:uppercase;color:var(--muted)}
@@ -182,7 +172,11 @@
     color:var(--muted);margin-top:12px}
   .pillar.dark .ev cite{color:var(--muted-dk)}
 
-  /* back to top */
+  @media (max-width:820px){
+    .cols{grid-template-columns:1fr;gap:32px}
+    .shot{flex:0 0 auto}
+  }
+
   .totop{display:inline-flex;align-items:center;gap:7px;margin-top:36px;
     font-family:var(--helv);font-size:11.5px;font-weight:600;letter-spacing:.13em;
     text-transform:uppercase;text-decoration:none;color:var(--muted);
@@ -208,9 +202,10 @@
     text-transform:uppercase;color:var(--blue)}
   .card .n{font-size:16px;font-weight:600;line-height:1.35;letter-spacing:-.01em;color:var(--navy)}
   .sect.dark .card .n{color:#fff}
-  .stamp{margin-top:auto;align-self:flex-start;font-family:var(--helv);font-size:9.5px;
+  .learn{margin-top:auto;align-self:flex-start;font-family:var(--helv);font-size:10px;
     font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);
-    border:2px solid var(--orange);border-radius:2px;padding:6px 9px}
+    border:2px solid var(--orange);border-radius:2px;padding:7px 12px;text-decoration:none}
+  .learn:hover{background:var(--orange);color:#0b1a22}
 
   /* ============ STORIES ============ */
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:36px}
@@ -233,43 +228,53 @@
   .close .lockup{font-size:clamp(26px,4.4vw,38px);line-height:1.15;margin:0 auto;max-width:18ch}
   .close .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
 
-  /* ============ AFTER: analysis, commentary voice ============ */
-  .after{max-width:var(--maxw);margin:0 auto 40px;background:#fff;
-    border:3px solid var(--pink);border-radius:2px;padding:32px 34px;font-family:var(--helv);color:#000}
-  .after h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--pink);margin:0 0 16px}
-  .after h2+h2{margin-top:36px}
-  .tablewrap{overflow-x:auto;border:1px solid #E2E2E2}
-  table{border-collapse:collapse;width:100%;min-width:620px;font-size:13.5px}
-  th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #E8E8E8;vertical-align:top}
-  th{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-    color:#888;background:#FAFAFA}
-  tr:last-child td{border-bottom:none}
-  td:first-child{color:#777;width:22%}
-  td b{color:var(--pink);font-weight:700}
-  ol.checks{font-size:14.5px;line-height:1.62;padding-left:20px;margin:0}
-  ol.checks li{margin-bottom:14px;padding-left:4px}
-  ol.checks b{font-weight:700}
+  /* ============ CLOSING ARGUMENT — one pink container ============ */
+  .next{
+    max-width:var(--maxw);margin:0 auto 40px;background:#fff;
+    border:3px solid var(--pink);border-radius:2px;padding:38px 40px;
+    font-family:var(--helv);color:#000;
+  }
+  .next .tag{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--pink);margin-bottom:18px}
+  .next h2{font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-.015em;
+    margin:0 0 10px;max-width:40ch}
+  .next .movement{margin-top:34px;padding-top:26px;border-top:1px solid #E6E6E6}
+  .next .movement:first-of-type{border-top:none;padding-top:0;margin-top:26px}
+  .next h3{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--pink);margin:0 0 12px}
+  .next h3 span{color:#BBB;margin-right:8px}
+  .next h4{font-size:15px;font-weight:700;margin:20px 0 8px;letter-spacing:-.01em}
+  .next p{font-size:14.5px;line-height:1.68;margin:0 0 14px;max-width:88ch}
+  .next p:last-child{margin-bottom:0}
+  .next b{font-weight:700}
+  .next em{font-style:italic}
+  .next .statement{
+    font-size:17px;line-height:1.5;font-weight:700;letter-spacing:-.012em;
+    border-left:4px solid var(--pink);padding:6px 0 6px 20px;margin:18px 0 20px;max-width:70ch;
+  }
+
   footer{max-width:var(--maxw);margin:0 auto;padding:0 28px 56px;
     font-family:var(--helv);font-size:11.5px;line-height:1.8;color:#6B7C86}
 
   @media (max-width:680px){
     .nav,.hero .inner,.metric,.pillar,.sect,.close{padding-left:22px;padding-right:22px}
     .hero .inner{padding-top:64px;padding-bottom:56px}
+    .brief,.next{padding:24px 22px;margin-left:14px;margin-right:14px}
+    .mock{margin-left:14px;margin-right:14px}
   }
 </style>
 </head>
 <body id="top">
 
-<!-- ============================================================
+<!-- =========================================================================
      COMMENTARY HEADER — replace this copy with your own
-     ============================================================ -->
+     ========================================================================= -->
 <header class="brief">
   <div class="tag">Speculative concept · not affiliated with or endorsed by Timescapes Limited</div>
 
-  <h1>A positioning concept for the Timescapes homepage.</h1>
+  <h1>The site explains what Timescapes is. It should explain who its customer becomes.</h1>
 
-  <p>This is an unsolicited redesign, built as a work sample for my application to the <b>Senior Product Marketing Manager</b> role in Vancouver.</p>
+  <p>This is an unsolicited redesign of the Timescapes homepage, built as a work sample for my application to the <b>Senior Product Marketing Manager</b> role in Vancouver.</p>
 
   <p>The current homepage is very good at explaining <b>what Timescapes is</b>. My argument is that it should explain <b>who its customer becomes</b>. The buyer is a person with mud on their boots and a spreadsheet open on the other screen — the one who decided to put Timescapes on this project, and who gets the credit when the job runs better. They don't wake up wanting reality capture. They want the job to move faster, they want nobody hurt, and they want to not lose the argument at the end of it.</p>
 
@@ -277,26 +282,24 @@
 
   <p>Every metric, customer name and quotation below is drawn from timescapes.co as published. I have reframed existing copy and surfaced evidence that is currently buried — I have not invented a product claim anywhere on this page. The imagery, colour and typography are Timescapes' own, augmented with a single orange accent that marks what is new.</p>
 
+  <p>The pink blocks throughout are my notes on why each change was made. The closing section sets out how I would take this from a homepage into a full go-to-market motion.</p>
+
   <div class="rule"></div>
 
-  <p>Press <b>Show the thinking</b> to reveal the reasoning behind each change, and the notes on what I would want to validate before any of it shipped.</p>
-
-  <button class="notes-btn" id="notesBtn" aria-pressed="false">Show the thinking</button>
-
   <div class="sig">
-    [YOUR NAME]<br>
-    <span>[email] · [LinkedIn] · August 2026</span>
+    <b>Evan Gale</b><br>
+    <a href="https://www.linkedin.com/in/evan-r-g/">linkedin.com/in/evan-r-g</a> · August 2026
   </div>
 </header>
 
-<!-- ============================================================
+<!-- =========================================================================
      MOCKUP
-     ============================================================ -->
+     ========================================================================= -->
 <div class="mock">
   <div class="chrome"><i></i><i></i><i></i><span>timescapes.co — concept</span></div>
 
   <nav class="nav">
-    <img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/69bbdb7a6cf2b3048577c111_Layer%201.png" alt="Timescapes">
+    <img src="assets/logo.png" alt="Timescapes">
     <ul>
       <li>Product</li><li>Who we serve</li><li>Built with Timescapes</li><li>Resources</li>
     </ul>
@@ -304,10 +307,8 @@
   </nav>
 
   <section class="hero">
-    <video autoplay muted loop playsinline preload="metadata"
-      poster="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/6587872b1ab0756ef8b97cf6_Frame%201903-min.jpg">
-      <source src="https://d1leqnehcsf9td.cloudfront.net/marketing-website/Timescapes-Machine-Learning.mov" type="video/quicktime">
-      <source src="https://d1leqnehcsf9td.cloudfront.net/marketing-website/Timescapes-Machine-Learning.mov" type="video/mp4">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
     </video>
     <div class="inner">
       <div class="eyebrow">Visual progress tracking for complex construction</div>
@@ -325,36 +326,33 @@
     <div class="metric">
       <div class="n">500+</div>
       <div class="l">live projects being built this way right now</div>
-      <div class="was"><s>500+ active projects globally</s> → a count of us becomes a count of them</div>
     </div>
     <div class="metric">
       <div class="n">$50B+</div>
       <div class="l">of construction that nobody has to argue about</div>
-      <div class="was"><s>$50B+ in project value documented</s> → "documented" is the feature; not arguing is the outcome</div>
     </div>
     <div class="metric">
       <div class="n">45+</div>
       <div class="l">people on the average project who stopped chasing updates</div>
-      <div class="was"><s>45+ average active users per project</s> → "active users" is a dashboard metric, not a benefit</div>
     </div>
   </div>
 
   <!-- FASTER -->
   <section class="pillar" id="faster">
     <div class="ts">07:12 · Tue · Cam 02</div>
-    <h3>Build <span>faster</span></h3>
-    <p class="say">Decisions at site speed, from wherever you happen to be standing.</p>
     <div class="cols">
-      <ul>
-        <li>Check deliveries, subcontractor activity and progress against programme without making a phone call or walking the site.</li>
-        <li>Arrive on site already knowing what you came for — fewer visits, and the ones you make are focused.</li>
-        <li>Assess real progress against your schedule <em>before</em> the weekly meeting, not during it.</li>
-        <li>Continuous automated capture replaces manual progress tracking entirely.</li>
-      </ul>
-      <div>
-        <div class="shot">
-          <img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/65694da0f24ca81fd09c14cd_iStock-1429083524%202%20(1)-p-1600.jpg" alt="Construction team reviewing progress on site">
-        </div>
+      <div class="col-text">
+        <h3>Build <span>faster</span></h3>
+        <p class="say">Decisions at site speed, from wherever you happen to be standing.</p>
+        <ul>
+          <li>Check deliveries, subcontractor activity and progress against programme without making a phone call or walking the site.</li>
+          <li>Arrive on site already knowing what you came for — fewer visits, and the ones you make are focused.</li>
+          <li>Assess real progress against your schedule <em>before</em> the weekly meeting, not during it.</li>
+          <li>Continuous automated capture replaces manual progress tracking entirely.</li>
+        </ul>
+      </div>
+      <div class="col-media">
+        <div class="shot"><img src="assets/faster.jpg" alt="Construction team reviewing progress on site"></div>
         <div class="ev">
           <div class="t">Auckland Airport · Hawkins</div>
           <p>Cameras were placed for full coverage of a new domestic terminal inside a fully operational airport. Continuous capture removed manual tracking and let the team monitor progress without adding foot traffic to a live environment.</p>
@@ -369,18 +367,18 @@
   <!-- SAFER -->
   <section class="pillar dark" id="safer">
     <div class="ts">11:48 · Tue · Cam 04</div>
-    <h3>Build <span>safer</span></h3>
-    <p class="say">See the near miss, not just the incident report.</p>
     <div class="cols">
-      <ul>
-        <li>Review near misses and incidents in high-resolution footage, identify root cause, and put corrective measures in place before it happens twice.</li>
-        <li>Keep watch over live environments — an operating airport, a running rail corridor, an occupied building — without adding people to the hazard.</li>
-        <li>Coordinate daily planning with your crew off current site images, so everyone is working from the same picture of today.</li>
-      </ul>
-      <div>
-        <div class="shot">
-          <img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/69aa138a5894b4455a0aa12b_iStock-2204869833.jpg" alt="Active construction site">
-        </div>
+      <div class="col-text">
+        <h3>Build <span>safer</span></h3>
+        <p class="say">See the near miss, not just the incident report.</p>
+        <ul>
+          <li>Review near misses and incidents in high-resolution footage, identify root cause, and put corrective measures in place before it happens twice.</li>
+          <li>Keep watch over live environments — an operating airport, a running rail corridor, an occupied building — without adding people to the hazard.</li>
+          <li>Coordinate daily planning with your crew off current site images, so everyone is working from the same picture of today.</li>
+        </ul>
+      </div>
+      <div class="col-media">
+        <div class="shot"><img src="assets/safer.jpg" alt="Active construction site"></div>
         <div class="ev">
           <div class="t">Why this pillar exists</div>
           <p>Auckland Airport asked Hawkins to use Timescapes, based on its track record on earlier airport projects. The owner specified the tool. That is the strongest commercial signal on the entire site — and it currently appears nowhere on the homepage.</p>
@@ -395,19 +393,19 @@
   <!-- SMARTER -->
   <section class="pillar" id="smarter">
     <div class="ts">16:03 · Tue · Cam 01</div>
-    <h3>Build <span>smarter</span></h3>
-    <p class="say">Win the argument before anyone starts having it.</p>
     <div class="cols">
-      <ul>
-        <li>Substantiate progress or delay claims with time-stamped visual evidence.</li>
-        <li>Confirm deliveries and installations were carried out correctly, the first time.</li>
-        <li>Overlay real site imagery against the 3D design model to catch clashes between what was drawn and what was built.</li>
-        <li>Give owners, investors and the public a single visual source of truth, rather than a version per stakeholder.</li>
-      </ul>
-      <div>
-        <div class="shot">
-          <img src="https://cdn.prod.website-files.com/65505ef9f224407ac9a99c79/67f35f34ec871d9613ae62e7_EB-ManagingDisputeResolutions_LP-Hero1920x1080-p-1600.png" alt="Managing dispute resolution with visual progress tracking">
-        </div>
+      <div class="col-text">
+        <h3>Build <span>smarter</span></h3>
+        <p class="say">Win the argument before anyone starts having it.</p>
+        <ul>
+          <li>Substantiate progress or delay claims with time-stamped visual evidence.</li>
+          <li>Confirm deliveries and installations were carried out correctly, the first time.</li>
+          <li>Overlay real site imagery against the 3D design model to catch clashes between what was drawn and what was built.</li>
+          <li>Give owners, investors and the public a single visual source of truth, rather than a version per stakeholder.</li>
+        </ul>
+      </div>
+      <div class="col-media">
+        <div class="shot"><img src="assets/smarter.png" alt="Managing dispute resolution with visual progress tracking"></div>
         <div class="ev">
           <div class="t">Glenbow Museum · EllisDon</div>
           <p>A heritage transformation where design intent and physical build had to be reconciled continuously — the case where visual evidence and model overlay earn their keep.</p>
@@ -425,47 +423,47 @@
     <h3>Built with Timescapes</h3>
     <div class="grid">
       <div class="card">
-        <div class="ph"><img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/6584ec362f83c1eb23bfe480_General-Contractors.jpg" alt=""></div>
+        <div class="ph"><img src="assets/case-crew.jpg" alt=""></div>
         <div class="cb">
           <div class="s">Transport Infrastructure</div>
           <div class="n">Auckland Airport domestic terminal</div>
-          <div class="stamp">Built with Timescapes</div>
+          <a class="learn" href="#cases">Learn more</a>
         </div>
       </div>
       <div class="card">
-        <div class="ph"><img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/69aa138a5894b4455a0aa12b_iStock-2204869833.jpg" alt=""></div>
+        <div class="ph"><img src="assets/safer.jpg" alt=""></div>
         <div class="cb">
           <div class="s">Transport Infrastructure</div>
           <div class="n">KiwiRail large-scale network projects</div>
-          <div class="stamp">Built with Timescapes</div>
+          <a class="learn" href="#cases">Learn more</a>
         </div>
       </div>
       <div class="card">
-        <div class="ph"><img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/65694da0f24ca81fd09c14cd_iStock-1429083524%202%20(1)-p-1600.jpg" alt=""></div>
+        <div class="ph"><img src="assets/faster.jpg" alt=""></div>
         <div class="cb">
           <div class="s">Civil Infrastructure</div>
           <div class="n">Transpower national grid works</div>
-          <div class="stamp">Built with Timescapes</div>
+          <a class="learn" href="#cases">Learn more</a>
         </div>
       </div>
       <div class="card">
-        <div class="ph"><img src="https://cdn.prod.website-files.com/65505ef9f224407ac9a99c79/67f35f34ec871d9613ae62e7_EB-ManagingDisputeResolutions_LP-Hero1920x1080-p-1600.png" alt=""></div>
+        <div class="ph"><img src="assets/smarter.png" alt=""></div>
         <div class="cb">
           <div class="s">Commercial</div>
           <div class="n">Glenbow Museum transformation, EllisDon</div>
-          <div class="stamp">Built with Timescapes</div>
+          <a class="learn" href="#cases">Learn more</a>
         </div>
       </div>
       <div class="card">
-        <div class="ph"><img src="https://cdn.prod.website-files.com/654c85969d2d235a5fef24af/69950e17ba625216995ea350_LP-PlatformMocks2026_TimescapesPlatform-Solutions.jpg" alt=""></div>
+        <div class="ph"><img src="assets/case-platform.jpg" alt=""></div>
         <div class="cb">
           <div class="s">Residential</div>
           <div class="n">Mattamy Homes communities</div>
-          <div class="stamp">Built with Timescapes</div>
+          <a class="learn" href="#cases">Learn more</a>
         </div>
       </div>
     </div>
-    <div class="note"><b>"Built with Timescapes"</b> does work that "Case Studies" cannot. It is a maker's mark — the grammar of "Powered by Stripe", or a hallmark stamped on steel — designed to travel off the website: onto the PDF, the conference banner, the site hoarding, the LinkedIn post a project manager writes when the job tops out. It turns a customer list into a register of projects built a particular way, and makes belonging to it something to want.</div>
+    <div class="note"><b>"Built with Timescapes"</b> does work that "Case Studies" cannot. It is a maker's mark — the grammar of "Powered by Stripe", or a hallmark stamped on steel — and it is built to travel off the website: onto the PDF, the conference banner, the site hoarding, the LinkedIn post a project manager writes when the job tops out. It turns a customer list into a register of projects built a particular way, and makes belonging to it something to want.</div>
     <a class="totop" href="#top">Back to top</a>
   </section>
 
@@ -489,7 +487,7 @@
       <small>Not a customer quote. This is the sentence every customer story should be built to end on — the standard the reference programme is measured against.</small>
     </div>
 
-    <div class="note">Both quotes above are real and already published. McCartney's is the more valuable of the two and it is currently buried in a case study rather than on the homepage — note his title, <b>Technology Systems Lead</b>: mud on the boots, spreadsheet open. The dark panel is deliberately labelled as aspirational and is attributed to no one. Naming the sentence you want to earn gives the customer-evidence programme a target to interview toward, and it is the honest way to put an aspiration on a page.</div>
+    <div class="note">Both quotes above are real and already published. McCartney's is the more valuable of the two and it is currently buried in a case study rather than on the homepage — note the title, <b>Technology Systems Lead</b>: mud on the boots, spreadsheet open. The dark panel is deliberately labelled as aspirational and is attributed to no one. Naming the sentence you want to earn gives the customer-evidence programme a target to interview toward, and it is the honest way to put an aspiration on a page.</div>
     <a class="totop" href="#top">Back to top</a>
   </section>
 
@@ -502,59 +500,86 @@
   </section>
 </div>
 
-<!-- ============================================================
-     ANALYSIS — commentary voice
-     ============================================================ -->
-<div class="after">
-  <h2>What changed</h2>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>Element</th><th>Today</th><th>Proposed</th></tr></thead>
-      <tbody>
-        <tr><td>Hero</td><td>"Every Angle. Every Moment. Always a Clear Picture"</td>
-          <td><b>Build faster. Build safer. Build smarter.</b> — three linked words that double as the page's navigation</td></tr>
-        <tr><td>Category</td><td>Continuous reality capture</td>
-          <td>Dropped from the hero. It is how the product works, not why anyone buys it.</td></tr>
-        <tr><td>Pillars</td><td>Track progress · Evidence · Communication</td>
-          <td>Faster · Safer · Smarter — outcomes the buyer already uses about their own job</td></tr>
-        <tr><td>Safety</td><td>Absent from the homepage</td>
-          <td><b>A full pillar</b>, built entirely from the Hawkins case study</td></tr>
-        <tr><td>Metrics</td><td>Projects, dollars, active users</td>
-          <td>The same three numbers, renamed for what they mean to a person</td></tr>
-        <tr><td>Case studies</td><td>"Explore Our Case Studies"</td>
-          <td><b>Built with Timescapes</b> — a mark that travels off the site</td></tr>
-        <tr><td>Best quote</td><td>Buried in a case study page</td>
-          <td>On the homepage, beside the pillar it proves</td></tr>
-        <tr><td>Colour</td><td>Navy and blue</td>
-          <td>Unchanged — plus one orange, used only on the three words, the stamp and the new primary action</td></tr>
-      </tbody>
-    </table>
+<!-- =========================================================================
+     CLOSING ARGUMENT
+     ========================================================================= -->
+<div class="next">
+  <div class="tag">Where this goes next</div>
+  <h2>A homepage is the visible end of a positioning system. Here is the rest of it.</h2>
+  <p>Everything above is one artefact. What follows is how I would turn it into a go-to-market motion, an enablement programme, and a product marketing function that outlives any single page.</p>
+
+  <div class="movement">
+    <h3><span>01</span> The character</h3>
+
+    <p>Everything above is written for one person.</p>
+
+    <p>They are the technology or delivery lead on a Tier 1 or Tier 2 general contractor's project. The job title moves around — Technology Systems Lead, Digital Engineering Manager, Senior Project Manager — but the shape doesn't. They have mud on their boots in the morning and a spreadsheet open in the afternoon. They are measured on programme and margin. They are exposed on two things they cannot fully control: whether the job runs to schedule, and whether anyone gets hurt.</p>
+
+    <p>They are not a buyer in the procurement sense. They are a <b>specifier</b>. They decide this project will be run with Timescapes on it, they defend that decision internally, and when the job lands well they are the reason it did. Timescapes' real customer is the person who chose it.</p>
+
+    <p>Christian McCartney at Hawkins is this character, on Timescapes' own website, in their own words: <em>an operational asset that drives efficiency, collaboration and safety</em>. That is not a testimonial, it is a persona document that already exists. Every asset the function produces should be written so this person recognises themselves inside one sentence.</p>
+
+    <p>Owners and developers are not a second universe requiring a parallel message. They are defined relative to the character: the people they have to keep informed, and the people who — as at Auckland Airport — sometimes specify the tool before they do.</p>
   </div>
 
-  <h2>What I would validate before shipping any of this</h2>
-  <ol class="checks">
-    <li><b>Whether "safer" survives contact with legal.</b> Selling safety outcomes on a monitoring product invites questions about liability, and about surveillance of workers. I would pressure-test the pillar with a customer's H&amp;S lead and with counsel before it goes anywhere near the hero.</li>
-    <li><b>Whether the three words hold in all four markets.</b> "Programme" versus "schedule", "site" versus "jobsite", and how NZ, AU, CA and US buyers rank the three outcomes against each other. That ranking should set the section order, and it may not be the same everywhere.</li>
-    <li><b>Whether faster/safer/smarter matches how deals are actually won.</b> This is built from public material only. Before committing I would read win/loss notes and sit on calls — if deals are consistently won on claims defence, "smarter" leads and the order changes.</li>
-    <li><b>What the per-project sales motion needs from a homepage.</b> Cameras deploy per project, so the growth engine is becoming the default across a contractor's whole portfolio. That is a different job from generating first-touch leads, and the site should be explicit about which one it is doing.</li>
-  </ol>
+  <div class="movement">
+    <h3><span>02</span> The positioning</h3>
+
+    <div class="statement">Timescapes makes construction sites run faster, safer and smarter, by giving the people responsible for them a continuous visual record of what actually happened.</div>
+
+    <p>Three outcomes, one mechanism, one owner. That is the whole statement, and it is deliberately short enough that a rep can say it on a call without reading it.</p>
+
+    <p>Faster, safer and smarter are not headline words — they are a <b>message architecture</b>. Every asset the function ships inherits exactly one of the three and knows which one. A campaign, a release note, a battlecard, a conference banner, a partner announcement: each has a parent pillar. Anything that cannot name its parent is a signal that either the asset is unfocused or the architecture is missing something. It is a cheap test, it takes five seconds, and it is what keeps four markets and several channels saying the same thing without needing a committee to approve it.</p>
+
+    <p>The mechanism — continuous reality capture — does not disappear. It moves to where it belongs: the proof layer, not the promise.</p>
+  </div>
+
+  <div class="movement">
+    <h3><span>03</span> What it becomes</h3>
+
+    <p>The same three words flex across the business without being rewritten.</p>
+
+    <h4>By segment</h4>
+    <p>GCs rank faster first, because programme is what they get beaten up about. Owners and developers rank smarter first, because their exposure is the claim and the change order. Same architecture, different order, no new messaging to maintain.</p>
+
+    <h4>By persona</h4>
+    <p>The project lead wants to stop chasing updates — a faster story. The digital team wants integration, model overlay and data that survives handover — a smarter one. Both are already served by the pillars; they just need different doors into them.</p>
+
+    <h4>By geography</h4>
+    <p>Programme or schedule. Site or jobsite. H&amp;S or EHS. The vocabulary changes across NZ, Australia, Canada and the US. The pillars do not.</p>
+
+    <h4>By motion</h4>
+    <p>This is the part a homepage cannot solve on its own. Cameras deploy per project, which means a won deal is one project, not one account, and revenue tracks project starts rather than seat growth. The real growth engine is becoming a contractor's default across their whole portfolio — a standardisation argument, aimed higher than the specifier, and it needs its own assets rather than borrowing the acquisition ones. Auckland Airport specifying Timescapes to Hawkins is that motion running in reverse, from the owner down, and it is the most repeatable story on the site.</p>
+
+    <h4>The enablement that falls out of it</h4>
+    <p>Battlecards keyed to each pillar, so a rep knows which argument they are actually in. An objection guide built from the objections that measurably stall deals, not the ones we imagine. An ROI calculator that runs on the character's own numbers — site visits avoided, claim hours saved, days of programme protected. Demo scripts that open on the outcome rather than the camera. One-pagers per segment. Case studies written so the character sees themselves in the first paragraph. And all of it on a maintenance cadence, because enablement built once and abandoned is worse than none — it teaches the sales team not to look.</p>
+  </div>
+
+  <div class="movement">
+    <h3><span>04</span> How the function grows</h3>
+
+    <h4>Audit before building</h4>
+    <p>Sit on calls, read win/loss, ask five reps what they wish they had walking into a deal. The asset list above is what I would expect to build; the <em>order</em> comes from where deals actually stall, and I would not commit to it before I know. If deals are consistently won on claims defence, smarter leads and the section order on this very page changes.</p>
+
+    <h4>Ship one launch properly</h4>
+    <p>Take the next release through the whole motion end to end — positioning, enablement, launch plan, measurement — and let that become the template. A working example beats a playbook document that nobody opens.</p>
+
+    <h4>Then the compounding work</h4>
+    <p>Competitive monitoring, customer research synthesis, first-draft content, and enablement generation are the four places AI does genuine work in this function. Built as durable workflows rather than one-off prompts, they are what makes it possible for one person to hold positioning across four markets without becoming the bottleneck.</p>
+
+    <h4>Coach, don't police</h4>
+    <p>The regional marketing managers already own their channels and know their markets. What they need from product marketing is the architecture, the words, and a fast answer when they ask which pillar something belongs to — not an approval queue.</p>
+
+    <h4>The thing I would check first</h4>
+    <p>Whether "safer" survives contact with legal. Selling safety outcomes on a monitoring product raises liability questions and worker-surveillance questions, and it is simultaneously the pillar with the most upside and the most exposure. I would pressure-test it with a customer's H&amp;S lead and with counsel before it went anywhere near a hero.</p>
+  </div>
 </div>
 
 <footer>
-  Independent positioning concept prepared as a work sample. Not affiliated with, authorised by, or endorsed by Timescapes Limited.
+  Independent positioning concept prepared as a work sample by Evan Gale. Not affiliated with, authorised by, or endorsed by Timescapes Limited.
   Company name, logo, imagery, metrics, customer names and quotations are the property of their respective owners and are reproduced here,
   unmodified and from publicly published material on timescapes.co, solely to illustrate a proposed change to that material.
 </footer>
 
-<script>
-  (function(){
-    var btn = document.getElementById('notesBtn');
-    btn.addEventListener('click', function(){
-      var on = document.body.classList.toggle('notes');
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.textContent = on ? 'Hide the thinking' : 'Show the thinking';
-    });
-  })();
-</script>
 </body>
 </html>
