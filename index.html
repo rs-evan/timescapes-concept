@@ -32,7 +32,7 @@
     --brand:"Inter",Arial,"Helvetica Neue",Helvetica,sans-serif;
     --display:"Manrope","Inter",Arial,sans-serif;
     --helv:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    --maxw:1140px;
+    --maxw:min(1360px, 94vw);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -56,10 +56,13 @@
     font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
     color:var(--pink);margin-bottom:20px;
   }
-  .brief h1{font-size:21px;line-height:1.35;font-weight:700;letter-spacing:-.015em;
-    margin:0 0 16px;max-width:34ch}
-  .brief p{font-size:14.5px;line-height:1.62;margin:0 0 13px;max-width:88ch}
+  .brief h1{font-size:clamp(24px,2.7vw,34px);line-height:1.22;font-weight:700;
+    letter-spacing:-.022em;margin:0 0 26px;max-width:none;text-wrap:balance}
+  /* body sits in balanced columns so it fills the width without a punishing line length */
+  .brief-body{columns:2;column-gap:56px}
+  .brief p{font-size:14.5px;line-height:1.65;margin:0 0 14px;break-inside:avoid}
   .brief p:last-of-type{margin-bottom:0}
+  @media (max-width:900px){ .brief-body{columns:1} }
   .brief b{font-weight:700}
   .brief .rule{height:1px;background:var(--pink);opacity:.35;margin:22px 0}
   .brief .sig{font-size:13.5px;line-height:1.75}
@@ -238,13 +241,21 @@
     color:var(--pink);margin-bottom:18px}
   .next h2{font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-.015em;
     margin:0 0 10px;max-width:40ch}
-  .next .movement{margin-top:34px;padding-top:26px;border-top:1px solid #E6E6E6}
-  .next .movement:first-of-type{border-top:none;padding-top:0;margin-top:26px}
+  .next .movement{margin-top:34px;padding-top:30px;border-top:1px solid #E6E6E6;
+    display:grid;grid-template-columns:190px minmax(0,1fr);gap:0 48px;align-items:start}
+  .next .movement:first-of-type{border-top:none;padding-top:0;margin-top:28px}
+  .next .movement > *{grid-column:2}
+  .next .movement > h3{grid-column:1;grid-row:1;position:sticky;top:20px}
   .next h3{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--pink);margin:0 0 12px}
-  .next h3 span{color:#BBB;margin-right:8px}
+    color:var(--pink);margin:0}
+  .next h3 span{display:block;color:#CCC;font-size:24px;letter-spacing:-.02em;margin-bottom:4px}
+  @media (max-width:900px){
+    .next .movement{grid-template-columns:1fr}
+    .next .movement > *,.next .movement > h3{grid-column:1}
+    .next .movement > h3{position:static;margin-bottom:14px}
+  }
   .next h4{font-size:15px;font-weight:700;margin:20px 0 8px;letter-spacing:-.01em}
-  .next p{font-size:14.5px;line-height:1.68;margin:0 0 14px;max-width:88ch}
+  .next p{font-size:14.5px;line-height:1.68;margin:0 0 14px;max-width:92ch}
   .next p:last-child{margin-bottom:0}
   .next b{font-weight:700}
   .next em{font-style:italic}
@@ -274,15 +285,20 @@
 
   <h1>The site explains what Timescapes is. It should explain who its customer becomes.</h1>
 
-  <p>This is an unsolicited redesign of the Timescapes homepage, built as a work sample for my application to the <b>Senior Product Marketing Manager</b> role in Vancouver.</p>
+  <!-- Rewrite freely — keep the paragraphs inside .brief-body so they stay in columns -->
+  <div class="brief-body">
 
-  <p>The current homepage is very good at explaining <b>what Timescapes is</b>. My argument is that it should explain <b>who its customer becomes</b>. The buyer is a person with mud on their boots and a spreadsheet open on the other screen — the one who decided to put Timescapes on this project, and who gets the credit when the job runs better. They don't wake up wanting reality capture. They want the job to move faster, they want nobody hurt, and they want to not lose the argument at the end of it.</p>
+  <p>This is a hypothetical redesign of the Timescapes homepage, built as a work sample for my application to the <b>Senior Product Marketing Manager</b> role in Vancouver.</p>
 
-  <p>So the page is rebuilt around three words that customer already uses about their own work: <b>faster, safer, smarter</b>. Each is a link into the section that proves it.</p>
+  <p>The current homepage is very good at explaining what Timescapes is, but I think it should do more. It should explain <b>why customers choose Timescapes</b> and <b>who its customer becomes</b>: the jobsite hero who delivers a build faster, safer, and smarter. This is someone with mud on their boots and a spreadsheet open on the other screen. They don't care about reality capture; they simply want the job to move faster, they want nobody hurt, and they want to not lose the argument at the end of it.</p>
 
-  <p>Every metric, customer name and quotation below is drawn from timescapes.co as published. I have reframed existing copy and surfaced evidence that is currently buried — I have not invented a product claim anywhere on this page. The imagery, colour and typography are Timescapes' own, augmented with a single orange accent that marks what is new.</p>
+  <p>So the page is rebuilt around reaching that customer quickly, using language they already use: <b>faster, safer, smarter</b>. Each is a link into the section that proves it.</p>
 
-  <p>The pink blocks throughout are my notes on why each change was made. The closing section sets out how I would take this from a homepage into a full go-to-market motion.</p>
+  <p>Every metric, customer name and quotation below is drawn from timescapes.co as published. I re-worked existing copy and evidence that is currently under-used; I have not invented a product claim anywhere on this page. The imagery, colour and typography are Timescapes' own, augmented with a single orange accent that marks what is new.</p>
+
+  <p>The pink blocks throughout are my notes on why each change was made. The closing section sets out how I would take this from a homepage into a full go-to-market motion. All of it is built from public material, so with win/loss data and a week of customer calls some of it would change. That is the first work, not a caveat. This is a good indication of <b>How I'd start</b>.</p>
+
+  </div><!-- /.brief-body -->
 
   <div class="rule"></div>
 
@@ -566,6 +582,8 @@
 
     <h4>Then the compounding work</h4>
     <p>Competitive monitoring, customer research synthesis, first-draft content, and enablement generation are the four places AI does genuine work in this function. Built as durable workflows rather than one-off prompts, they are what makes it possible for one person to hold positioning across four markets without becoming the bottleneck.</p>
+
+    <p>This page was built that way. I used AI assistance for research synthesis, competitive scanning and drafting. The positioning calls are mine. The judgement is the job; the speed is the tooling.</p>
 
     <h4>Coach, don't police</h4>
     <p>The regional marketing managers already own their channels and know their markets. What they need from product marketing is the architecture, the words, and a fast answer when they ask which pillar something belongs to — not an approval queue.</p>
