@@ -55,7 +55,7 @@
     font-family:var(--helv);color:#000;text-align:left;
     max-width:var(--maxw);margin:34px auto 30px;padding:64px 60px 58px;
   }
-  /* everything centred on one axis, text still ranged left */
+  /* everything centered on one axis, text still ranged left */
   .brief > *{max-width:var(--measure);margin-left:auto;margin-right:auto}
   .brief .tag{
     font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
@@ -86,6 +86,8 @@
   }
   .note b{font-weight:700}
   .note em{font-style:italic}
+  .note p{margin:0 0 11px}
+  .note p:last-child{margin-bottom:0}
 
   /* ============ MOCKUP SHELL ============ */
   .mock{max-width:var(--maxw);margin:0 auto 34px;background:var(--white);
@@ -129,7 +131,10 @@
   .hero h2 a::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.05em;
     background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .24s ease}
   .hero h2 a:hover::after,.hero h2 a:focus-visible::after{transform:scaleX(1)}
-  .hero .sub{color:#CFE2ED;font-size:19px;line-height:1.55;max-width:46ch;margin:28px 0 0}
+  /* the differentiator carries the sub-line alone; the benefit is already
+     stated by faster / safer / smarter above it */
+  .hero .sub{color:#fff;font-size:clamp(21px,1.95vw,29px);font-weight:600;
+    letter-spacing:-.015em;line-height:1.28;max-width:32ch;margin:30px 0 0}
   .lockup{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.015em;
     color:#fff;margin:30px 0 0}
   .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
@@ -302,7 +307,7 @@
 
   <p>So the page is rebuilt around reaching that customer quickly, using language they already use: <b>faster, safer, smarter</b>. Each is a link into the section that proves it.</p>
 
-  <p>Every metric, customer name and quotation below is drawn from timescapes.co as published. I re-worked existing copy and evidence that is currently under-used; I have not invented a product claim anywhere on this page. The imagery, colour and typography are Timescapes' own, augmented with a single orange accent that marks what is new.</p>
+  <p>Every metric, customer name and quotation below is drawn from timescapes.co as published. I re-worked existing copy and evidence that is currently under-used; I have not invented a product claim anywhere on this page. The imagery, color and typography are Timescapes' own, augmented with a single orange accent that marks what is new.</p>
 
   <p>The pink blocks throughout are my notes on why each change was made. The closing section sets out how I would take this from a homepage into a full go-to-market motion. All of it is built from public material, so with win/loss data and a week of customer calls some of it would change. That is the first work, not a caveat. This is a good indication of <b>How I'd start</b>.</p>
 
@@ -338,9 +343,9 @@
       <source src="hero.mp4" type="video/mp4">
     </video>
     <div class="inner">
-      <div class="eyebrow">Visual progress tracking for complex construction</div>
+      <div class="eyebrow">Continuous capture, from groundbreak to handover</div>
       <h2>Build <a href="#faster">faster</a>.<br>Build <a href="#safer">safer</a>.<br>Build <a href="#smarter">smarter</a>.</h2>
-      <p class="sub">A continuous, time-stamped visual record of your site, so you can move earlier, see risk sooner, and settle it with proof.</p>
+      <p class="sub">The jobsite that records itself.</p>
       <p class="lockup">Build with confidence. Build with Timescapes.</p>
       <div class="cta">
         <a class="btn btn-orange" href="https://www.timescapes.co/request-demo" target="_blank" rel="noopener noreferrer">See it on your project</a>
@@ -372,7 +377,7 @@
         <h3>Build <span>faster</span></h3>
         <p class="say">Decisions at site speed, from wherever you happen to be standing.</p>
         <ul>
-          <li>Check deliveries, subcontractor activity and progress against programme without making a phone call or walking the site.</li>
+          <li>Check deliveries, subcontractor activity and progress against schedule without making a phone call or walking the site.</li>
           <li>Arrive on site already knowing what you came for. Fewer visits, and the ones you make are focused.</li>
           <li>Assess real progress against your schedule <em>before</em> the weekly meeting, not during it.</li>
           <li>Continuous automated capture takes the place of manual progress tracking.</li>
@@ -414,7 +419,7 @@
         </div>
       </div>
     </div>
-    <div class="note">This section is <b>new</b> but collects content and claims from Hawkins' testimonial and case study. Nothing is invented. It has great opportunity to grow as site-condition detection matures.</div>
+    <div class="note">This section is <b>new</b>; safety is named in the Who We Serve menu but never developed. I pulled this content from the Hawkins testimonial and case study, including the title. PPE and site detection, mentioned elsewhere, can join this area as it matures.</div>
     <a class="totop" href="#top">Back to top</a>
   </section>
 
@@ -441,7 +446,7 @@
         </div>
       </div>
     </div>
-    <div class="note">Merges the current pillars 02 and 03. <em>"The evidence you need, when you need it"</em> is close to right already. It just needed to be about <b>the person who does not lose the claim</b>. The BIM clash line comes from the Hawkins study and is one of the most differentiated capabilities on the site, currently buried three clicks deep.</div>
+    <div class="note">Here, I combine and switch content from a few sections. We give personal ownership to <em>"The evidence you need, when you need it"</em>, and elevate the BIM clash from the Hawkins study.</div>
     <a class="totop" href="#top">Back to top</a>
   </section>
 
@@ -491,7 +496,7 @@
         </div>
       </div>
     </div>
-    <div class="note"><b>"Built with Timescapes"</b> does work that "Case Studies" cannot. It is a maker's mark, the grammar of "Powered by Stripe", or a hallmark stamped on steel. It is built to travel off the website: onto the PDF, the conference banner, the site hoarding, the LinkedIn post a project manager writes when the job tops out. It turns a customer list into a register of projects built a particular way, and makes belonging to it something to want.</div>
+    <div class="note">Everyone has "case studies", but you have projects <b>"Built with Timescapes"</b>. It's a phrase that starts here but travels to PDFs, banners, signs. It becomes a club.</div>
     <a class="totop" href="#top">Back to top</a>
   </section>
 
@@ -512,10 +517,11 @@
     <div class="target">
       <div class="t">The line we haven't earned yet</div>
       <p>"I only work on Timescapes sites."</p>
-      <small>Not a customer quote. This is the sentence every customer story should be built to end on, and the standard the reference programme is measured against.</small>
+      <small>Not a customer quote. This is the sentence every customer story should be built to end on, and the standard the reference program is measured against.</small>
     </div>
 
-    <div class="note">Both quotes above are real and already published. McCartney's is the more valuable of the two and it is currently buried in a case study rather than on the homepage. Note the title, <b>Technology Systems Lead</b>: mud on the boots, spreadsheet open. The dark panel is deliberately labelled as aspirational and is attributed to no one. Naming the sentence you want to earn gives the customer-evidence programme a target to interview toward, and it is the honest way to put an aspiration on a page.</div>
+    <div class="note"><p>Both quotes above are real and published, we're just elevating them. And I think McCartney's title, <b>"Technology Systems Lead"</b> is something to pay attention to; that's our target customer. Muddy boots, open spreadsheets.</p>
+      <p>The dark panel is aspirational; it's something we want subcontractors or builders to say. We want our hero to choose Timescapes, and their crew to thank them. Timescapes sites are faster, safer, smarter. This is the energy that makes <b>"Built with Timescapes"</b> a club.</p></div>
     <a class="totop" href="#top">Back to top</a>
   </section>
 
@@ -533,75 +539,62 @@
      ========================================================================= -->
 <div class="next">
   <div class="tag">Where this goes next</div>
-  <h2>A homepage is the visible end of a positioning system. Here is the rest of it.</h2>
-  <p>Everything above is one artefact. What follows is how I would turn it into a go-to-market motion, an enablement programme, and a product marketing function that outlives any single page.</p>
+  <h2>What happens after the homepage.</h2>
+  <p>Everything above is one page. Here's how I'd turn it into a go-to-market motion, an enablement program, and a product marketing function that outlives it.</p>
 
   <div class="movement">
     <h3><span>01</span> The character</h3>
-
     <p>Everything above is written for one person.</p>
-
-    <p>They are the technology or delivery lead on a Tier 1 or Tier 2 general contractor's project. The job title moves around, from Technology Systems Lead to Digital Engineering Manager to Senior Project Manager, but the shape doesn't. They have mud on their boots in the morning and a spreadsheet open in the afternoon. They are measured on programme and margin. They are exposed on two things they cannot fully control: whether the job runs to schedule, and whether anyone gets hurt.</p>
-
-    <p>They are not a buyer in the procurement sense. They are a <b>specifier</b>. They decide this project will be run with Timescapes on it, they defend that decision internally, and when the job lands well they are the reason it did. Timescapes' real customer is the person who chose it.</p>
-
-    <p>Christian McCartney at Hawkins is this character, on Timescapes' own website, in their own words: <em>an operational asset that drives efficiency, collaboration and safety</em>. That is not a testimonial, it is a persona document that already exists. Every asset the function produces should be written so this person recognises themselves inside one sentence.</p>
-
-    <p>Owners and developers are not a second universe requiring a parallel message. They are defined relative to the character: the people they have to keep informed, and the people who sometimes specify the tool before they do, as at Auckland Airport.</p>
+    <p>They're the technology or delivery lead at a Tier 1 or Tier 2 general contractor. Titles move around: Technology Systems Lead, Digital Engineering Manager, Senior Project Manager. The job is the same. Muddy boots in the morning, spreadsheet in the afternoon. Measured on schedule and margin, and exposed on two things they can't fully control: whether the job runs late, and whether anyone gets hurt.</p>
+    <p>They don't sign the contract. They decide the project runs with Timescapes on it, defend that internally, and take the credit when it lands well.</p>
+    <p>McCartney at Hawkins is this person, on Timescapes' own site, in their own words. Every asset we make should be written so this person recognizes themselves in the first sentence.</p>
+    <p>Owners and developers fit the same story. They're the people our character keeps informed, and sometimes, like at Auckland Airport, the people who tell them what to use.</p>
   </div>
 
   <div class="movement">
     <h3><span>02</span> The positioning</h3>
-
     <div class="statement">Timescapes makes construction sites run faster, safer and smarter, by giving the people responsible for them a continuous visual record of what actually happened.</div>
-
-    <p>Three outcomes, one mechanism, one owner. That is the whole statement, and it is deliberately short enough that a rep can say it on a call without reading it.</p>
-
-    <p>Faster, safer and smarter are not headline words. They are a <b>message architecture</b>. Every asset the function ships inherits exactly one of the three and knows which one. A campaign, a release note, a battlecard, a conference banner, a partner announcement: each has a parent pillar. Anything that cannot name its parent is a signal that either the asset is unfocused or the architecture is missing something. It is a cheap test, it takes five seconds, and it is what keeps four markets and several channels saying the same thing without needing a committee to approve it.</p>
-
-    <p>The mechanism, continuous reality capture, does not disappear. It moves to where it belongs: the proof layer, not the promise.</p>
+    <p>Three outcomes, one mechanism, one owner. Short enough that a rep can say it on a call without reading it.</p>
+    <p>Faster, safer and smarter then work as a filing system. Every campaign, release note, battlecard and conference banner belongs to one of the three, and we should be able to say which. When something won't file, that usually means the asset is unfocused. It takes five seconds to check, and it's what keeps four markets saying the same thing without a committee.</p>
+    <p>Continuous reality capture stays. It moves down a level, into the proof.</p>
   </div>
 
   <div class="movement">
     <h3><span>03</span> What it becomes</h3>
 
-    <p>The same three words flex across the business without being rewritten.</p>
-
     <h4>By segment</h4>
-    <p>GCs rank faster first, because programme is what they get beaten up about. Owners and developers rank smarter first, because their exposure is the claim and the change order. Same architecture, different order, no new messaging to maintain.</p>
+    <p>GCs put faster first, because schedule is what they get beaten up about. Owners and developers put smarter first, because their exposure is the claim. Same three words, different order.</p>
 
     <h4>By persona</h4>
-    <p>The project lead wants to stop chasing updates, which is a faster story. The digital team wants integration, model overlay and data that survives handover, which is a smarter one. Both are already served by the pillars; they just need different doors into them.</p>
+    <p>The project lead wants to stop chasing updates. The digital team wants integration, model overlay, and data that survives handover. Both are already covered by the pillars. They need different ways in.</p>
 
     <h4>By geography</h4>
-    <p>Programme or schedule. Site or jobsite. H&amp;S or EHS. The vocabulary changes across NZ, Australia, Canada and the US. The pillars do not.</p>
+    <p>Schedule or programme. Jobsite or site. EHS or H&amp;S. The vocabulary changes across NZ, Australia, Canada and the US. The three pillars don't.</p>
 
     <h4>By motion</h4>
-    <p>This is the part a homepage cannot solve on its own. Cameras deploy per project, which means a won deal is one project, not one account, and revenue tracks project starts rather than seat growth. The real growth engine is becoming a contractor's default across their whole portfolio. That is a standardisation argument, aimed higher than the specifier, and it needs its own assets rather than borrowing the acquisition ones. Auckland Airport specifying Timescapes to Hawkins is that motion running in reverse, from the owner down, and it is the most repeatable story on the site.</p>
+    <p>Cameras go onto projects, so a won deal is one project and revenue tracks project starts. The bigger prize is becoming a contractor's default across their whole portfolio. That's a different argument, aimed at someone more senior, and it needs its own material rather than the acquisition material with the logo swapped. Auckland Airport telling Hawkins to use Timescapes is that motion running from the owner down, and it's the most repeatable story on the site.</p>
 
-    <h4>The enablement that falls out of it</h4>
-    <p>Battlecards keyed to each pillar, so a rep knows which argument they are actually in. An objection guide built from the objections that measurably stall deals, not the ones we imagine. An ROI calculator that runs on the character's own numbers: site visits avoided, claim hours saved, days of programme protected. Demo scripts that open on the outcome rather than the camera. One-pagers per segment. Case studies written so the character sees themselves in the first paragraph. And all of it on a maintenance cadence, because enablement built once and abandoned is worse than none. It teaches the sales team not to look.</p>
+    <h4>What we build from it</h4>
+    <p>Battlecards per pillar, so a rep knows which argument they are in. An objection guide built from the objections that measurably stall deals. An ROI calculator that runs on our character's numbers: site visits avoided, claim hours saved, days of schedule protected. Demo scripts that open on the outcome. One-pagers per segment. Case studies where the customer sees themselves in the first paragraph. And a maintenance cadence, because enablement nobody updates stops getting opened.</p>
   </div>
 
   <div class="movement">
     <h3><span>04</span> How the function grows</h3>
 
-    <h4>Audit before building</h4>
-    <p>Sit on calls, read win/loss, ask five reps what they wish they had walking into a deal. The asset list above is what I would expect to build; the <em>order</em> comes from where deals actually stall, and I would not commit to it before I know. If deals are consistently won on claims defence, smarter leads and the section order on this very page changes.</p>
+    <h4>Audit first</h4>
+    <p>Sit on calls, read win/loss, ask five reps what they wish they had walking into a deal. I expect to build the list above. The order comes from where deals actually stall, and I don't know that yet. If most deals turn on claims defense, smarter leads and this page changes.</p>
 
     <h4>Ship one launch properly</h4>
-    <p>Take the next release through the whole motion end to end, covering positioning, enablement, launch plan and measurement, and let that become the template. A working example beats a playbook document that nobody opens.</p>
+    <p>Take the next release through the whole motion, from positioning to enablement to launch plan to measurement, and use it as the template. I'd rather leave behind a worked example than a playbook.</p>
 
     <h4>Then the compounding work</h4>
-    <p>Competitive monitoring, customer research synthesis, first-draft content, and enablement generation are the four places AI does genuine work in this function. Built as durable workflows rather than one-off prompts, they are what makes it possible for one person to hold positioning across four markets without becoming the bottleneck.</p>
-
-    <p>This page was built that way. I used AI assistance for research synthesis, competitive scanning and drafting. The positioning calls are mine. The judgement is the job; the speed is the tooling.</p>
+    <p>Competitive monitoring, customer research synthesis, first drafts, enablement generation. Four places AI does real work in this function, built as workflows rather than one-off prompts. This page was built that way. I used AI for research and drafting, and made the positioning calls myself.</p>
 
     <h4>Coach, don't police</h4>
-    <p>The regional marketing managers already own their channels and know their markets. What they need from product marketing is the architecture, the words, and a fast answer when they ask which pillar something belongs to. Not an approval queue.</p>
+    <p>The regional marketing managers know their markets and own their channels. What they need is the words, and a fast answer when they ask which pillar something belongs to.</p>
 
-    <h4>The thing I would check first</h4>
-    <p>Whether "safer" survives contact with legal. Selling safety outcomes on a monitoring product raises liability questions and worker-surveillance questions, and it is simultaneously the pillar with the most upside and the most exposure. I would pressure-test it with a customer's H&amp;S lead and with counsel before it went anywhere near a hero.</p>
+    <h4>What I'd check first</h4>
+    <p>Whether "safer" survives legal. Selling safety outcomes on a monitoring product raises liability questions and worker-surveillance questions, and it's the pillar with the most upside and the most exposure. I'd test it with a customer's health and safety lead and with counsel before it goes anywhere near a hero.</p>
   </div>
 </div>
 
