@@ -244,37 +244,31 @@
   .close .lockup{font-size:clamp(26px,4.4vw,38px);line-height:1.15;margin:0 auto;max-width:18ch}
   .close .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
 
-  /* ============ CLOSING ARGUMENT: one pink container ============ */
+  /* ============ CLOSING ARGUMENT: same shell and axis as the opening note ============ */
   .next{
-    max-width:var(--maxw);margin:0 auto 40px;background:#fff;
-    border:3px solid var(--pink);border-radius:2px;padding:38px 40px;
-    font-family:var(--helv);color:#000;
+    --measure:640px;
+    background:#fff;border:3px solid var(--pink);border-radius:2px;
+    font-family:var(--helv);color:#000;text-align:left;
+    max-width:var(--maxw);margin:0 auto 40px;padding:64px 60px 58px;
   }
+  .next > *{max-width:var(--measure);margin-left:auto;margin-right:auto}
   .next .tag{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--pink);margin-bottom:18px}
-  .next h2{font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-.015em;
-    margin:0 0 10px;max-width:40ch}
-  .next .movement{margin-top:34px;padding-top:30px;border-top:1px solid #E6E6E6;
-    display:grid;grid-template-columns:190px minmax(0,1fr);gap:0 48px;align-items:start}
-  .next .movement:first-of-type{border-top:none;padding-top:0;margin-top:28px}
-  .next .movement > *{grid-column:2}
-  .next .movement > h3{grid-column:1;grid-row:1;position:sticky;top:20px}
+    color:var(--pink);margin-bottom:22px}
+  .next h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;font-weight:700;
+    letter-spacing:-.03em;margin:0 auto 34px;text-wrap:wrap}
+  .next .movement{margin-top:40px;padding-top:32px;border-top:1px solid #E6E6E6}
   .next h3{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--pink);margin:0}
-  .next h3 span{display:block;color:#CCC;font-size:24px;letter-spacing:-.02em;margin-bottom:4px}
-  @media (max-width:900px){
-    .next .movement{grid-template-columns:1fr}
-    .next .movement > *,.next .movement > h3{grid-column:1}
-    .next .movement > h3{position:static;margin-bottom:14px}
-  }
-  .next h4{font-size:15px;font-weight:700;margin:20px 0 8px;letter-spacing:-.01em}
-  .next p{font-size:14.5px;line-height:1.68;margin:0 0 14px;max-width:92ch}
+    color:var(--pink);margin:0 0 16px}
+  .next h3 span{color:#C9C9C9;margin-right:10px}
+  /* margin-top/bottom only: the shorthand would reset the auto side margins
+     that .next > * uses to center direct children */
+  .next p{font-size:16px;line-height:1.72;margin-top:0;margin-bottom:18px}
   .next p:last-child{margin-bottom:0}
   .next b{font-weight:700}
   .next em{font-style:italic}
   .next .statement{
-    font-size:17px;line-height:1.5;font-weight:700;letter-spacing:-.012em;
-    border-left:4px solid var(--pink);padding:6px 0 6px 20px;margin:18px 0 20px;max-width:70ch;
+    font-size:19px;line-height:1.5;font-weight:700;letter-spacing:-.015em;
+    border-left:4px solid var(--pink);padding:6px 0 6px 22px;margin:0 0 22px;
   }
 
   footer{max-width:var(--maxw);margin:0 auto;padding:0 28px 56px;
@@ -540,61 +534,36 @@
 <div class="next">
   <div class="tag">Where this goes next</div>
   <h2>What happens after the homepage.</h2>
-  <p>Everything above is one page. Here's how I'd turn it into a go-to-market motion, an enablement program, and a product marketing function that outlives it.</p>
+  <p>Here's how I'd turn one page into a go-to-market motion, an enablement program, and a function that outlives it.</p>
 
   <div class="movement">
     <h3><span>01</span> The character</h3>
-    <p>Everything above is written for one person.</p>
-    <p>They're the technology or delivery lead at a Tier 1 or Tier 2 general contractor. Titles move around: Technology Systems Lead, Digital Engineering Manager, Senior Project Manager. The job is the same. Muddy boots in the morning, spreadsheet in the afternoon. Measured on schedule and margin, and exposed on two things they can't fully control: whether the job runs late, and whether anyone gets hurt.</p>
-    <p>They don't sign the contract. They decide the project runs with Timescapes on it, defend that internally, and take the credit when it lands well.</p>
-    <p>McCartney at Hawkins is this person, on Timescapes' own site, in their own words. Every asset we make should be written so this person recognizes themselves in the first sentence.</p>
-    <p>Owners and developers fit the same story. They're the people our character keeps informed, and sometimes, like at Auckland Airport, the people who tell them what to use.</p>
+    <p>Everything above is written for one person: the technology or delivery lead at a Tier 1 or 2 general contractor. Muddy boots in the morning, spreadsheet in the afternoon. Measured on schedule and margin, exposed on two things they can't control: whether the job runs late, and whether anyone gets hurt.</p>
+    <p>They don't sign the contract. They decide the project runs with Timescapes on it, and take the credit when it lands. McCartney at Hawkins is this person, on Timescapes' own site, in their own words.</p>
+    <p>Owners and developers are who our character keeps informed, and sometimes, like Auckland Airport, who tells them what to use.</p>
   </div>
 
   <div class="movement">
     <h3><span>02</span> The positioning</h3>
     <div class="statement">Timescapes makes construction sites run faster, safer and smarter, by giving the people responsible for them a continuous visual record of what actually happened.</div>
-    <p>Three outcomes, one mechanism, one owner. Short enough that a rep can say it on a call without reading it.</p>
-    <p>Faster, safer and smarter then work as a filing system. Every campaign, release note, battlecard and conference banner belongs to one of the three, and we should be able to say which. When something won't file, that usually means the asset is unfocused. It takes five seconds to check, and it's what keeps four markets saying the same thing without a committee.</p>
-    <p>Continuous reality capture stays. It moves down a level, into the proof.</p>
+    <p>Three outcomes, one mechanism, one owner. Short enough to say on a call without reading it.</p>
+    <p>The three words then work as a filing system. Every campaign, release note and battlecard belongs to one of them. When something won't file, it's usually unfocused. That's how four markets stay on message without a committee.</p>
   </div>
 
   <div class="movement">
     <h3><span>03</span> What it becomes</h3>
-
-    <h4>By segment</h4>
-    <p>GCs put faster first, because schedule is what they get beaten up about. Owners and developers put smarter first, because their exposure is the claim. Same three words, different order.</p>
-
-    <h4>By persona</h4>
-    <p>The project lead wants to stop chasing updates. The digital team wants integration, model overlay, and data that survives handover. Both are already covered by the pillars. They need different ways in.</p>
-
-    <h4>By geography</h4>
-    <p>Schedule or programme. Jobsite or site. EHS or H&amp;S. The vocabulary changes across NZ, Australia, Canada and the US. The three pillars don't.</p>
-
-    <h4>By motion</h4>
-    <p>Cameras go onto projects, so a won deal is one project and revenue tracks project starts. The bigger prize is becoming a contractor's default across their whole portfolio. That's a different argument, aimed at someone more senior, and it needs its own material rather than the acquisition material with the logo swapped. Auckland Airport telling Hawkins to use Timescapes is that motion running from the owner down, and it's the most repeatable story on the site.</p>
-
-    <h4>What we build from it</h4>
-    <p>Battlecards per pillar, so a rep knows which argument they are in. An objection guide built from the objections that measurably stall deals. An ROI calculator that runs on our character's numbers: site visits avoided, claim hours saved, days of schedule protected. Demo scripts that open on the outcome. One-pagers per segment. Case studies where the customer sees themselves in the first paragraph. And a maintenance cadence, because enablement nobody updates stops getting opened.</p>
+    <p>GCs put faster first, because schedule is what they get beaten up about. Owners and developers put smarter first, because their exposure is the claim. Same three words, different order. The vocabulary shifts across four markets; the pillars don't.</p>
+    <p>Cameras go onto projects, so a won deal is one project. The bigger prize is becoming a contractor's default across their portfolio, a different argument that needs its own material. Auckland Airport telling Hawkins to use Timescapes is that motion from the owner down.</p>
+    <p>From there: battlecards per pillar, an objection guide from objections that actually stall deals, an ROI calculator on our character's numbers. Case studies where the customer sees themselves early, all on a maintenance cadence, because enablement nobody updates stops getting opened.</p>
   </div>
 
   <div class="movement">
     <h3><span>04</span> How the function grows</h3>
-
-    <h4>Audit first</h4>
-    <p>Sit on calls, read win/loss, ask five reps what they wish they had walking into a deal. I expect to build the list above. The order comes from where deals actually stall, and I don't know that yet. If most deals turn on claims defense, smarter leads and this page changes.</p>
-
-    <h4>Ship one launch properly</h4>
-    <p>Take the next release through the whole motion, from positioning to enablement to launch plan to measurement, and use it as the template. I'd rather leave behind a worked example than a playbook.</p>
-
-    <h4>Then the compounding work</h4>
-    <p>Competitive monitoring, customer research synthesis, first drafts, enablement generation. Four places AI does real work in this function, built as workflows rather than one-off prompts. This page was built that way. I used AI for research and drafting, and made the positioning calls myself.</p>
-
-    <h4>Coach, don't police</h4>
-    <p>The regional marketing managers know their markets and own their channels. What they need is the words, and a fast answer when they ask which pillar something belongs to.</p>
-
-    <h4>What I'd check first</h4>
-    <p>Whether "safer" survives legal. Selling safety outcomes on a monitoring product raises liability questions and worker-surveillance questions, and it's the pillar with the most upside and the most exposure. I'd test it with a customer's health and safety lead and with counsel before it goes anywhere near a hero.</p>
+    <p>Audit first. Sit on calls, read win/loss, ask five reps what they need. The order of that list comes from where deals stall, and I don't know that yet. If deals turn on claims defense, smarter leads and this page changes.</p>
+    <p>Then ship one launch through the whole motion as the template. Better to leave a worked example than a playbook.</p>
+    <p>Competitive monitoring, research synthesis, first drafts, enablement generation. Four places AI does real work. This page was built that way: I used AI for research and drafting, and made the positioning calls myself.</p>
+    <p>The regional marketing managers know their markets. They need the words and fast answers on where things file.</p>
+    <p>The thing I'd check first is whether "safer" survives legal. Selling safety on a monitoring product raises liability and worker-surveillance questions. I'd test it with a customer's health and safety lead before it goes near a hero.</p>
   </div>
 </div>
 
